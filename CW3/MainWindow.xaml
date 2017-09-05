@@ -5,8 +5,119 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CW3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="Zadanie 3| Dodawanie i odejmowanie macierzy" Height="350" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Name="Menu">
+            <MenuItem Header="_Plik">
+                <MenuItem x:Name="MenuItemReadMatrix1" Header="_Wczytaj macierz 1" Click="MenuItemReadMatrix1_Click" />
+                <MenuItem x:Name="MenuItemReadMatrix2" Header="_Wczytaj macierz 2" Click="MenuItemReadMatrix2_Click" />
+                <MenuItem x:Name="MenuItemSaveResult" Header="_Zapisz wynik" Click="MenuItemSaveResult_Click" />
+                <Separator />
+                <MenuItem x:Name="MenuItemExit" Header="_Exit" Click="MenuItemExit_Click" />
+            </MenuItem>
+            <MenuItem Header="_Operacje">
+                <MenuItem x:Name="MenuItemSum" Header="_Sumuj macierze" Click="MenuItemSum_Click" />
+                <MenuItem x:Name="MenuItemSubstract" Header="_Odejmij macierze" Click="MenuItemSubstract_Click" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="10" />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Content="Macierz 1" HorizontalContentAlignment="Center" FontWeight="Bold" />
+                <ListView Grid.Row="1" Name="ListView1" Height="auto" VerticalContentAlignment="Stretch"
+                          HorizontalContentAlignment="Stretch">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ListView ItemsSource="{Binding}" Height="auto" HorizontalContentAlignment="Stretch"
+                                      VerticalContentAlignment="Stretch">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <WrapPanel MinWidth="15">
+                                            <TextBlock Text="{Binding}" />
+                                        </WrapPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                            </ListView>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Content="Macierz 2" HorizontalContentAlignment="Center" FontWeight="Bold" />
+                <ListView Grid.Row="1" Name="ListView2" Height="auto" VerticalContentAlignment="Stretch"
+                          HorizontalContentAlignment="Stretch">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ListView ItemsSource="{Binding}" Height="auto" HorizontalContentAlignment="Stretch"
+                                      VerticalContentAlignment="Stretch">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <WrapPanel MinWidth="15">
+                                            <TextBlock Text="{Binding}" />
+                                        </WrapPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                            </ListView>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Content="Wynik" HorizontalContentAlignment="Center" FontWeight="Bold" />
+                <ListView Grid.Row="1" Name="ListViewResult" Height="auto" VerticalContentAlignment="Stretch"
+                          HorizontalContentAlignment="Stretch">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ListView ItemsSource="{Binding}" Height="auto" HorizontalContentAlignment="Stretch"
+                                      VerticalContentAlignment="Stretch">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <WrapPanel MinWidth="15">
+                                            <TextBlock Text="{Binding}" />
+                                        </WrapPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                            </ListView>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <ProgressBar Name="ProgressBar" Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0" />
+        </Grid>
+    </DockPanel>
 </Window>
